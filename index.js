@@ -1,22 +1,22 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const port = 4000;
+const port = 3000;
 
 // Middleware to parse form data
 app.use(express.urlencoded({ extended: true }));
 
 // Set EJS as the templating engine
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 // Route to display the form
-app.get('/', (req, res) => {
-  res.render('index');
+app.get("/", (req, res) => {
+  res.render("index");
 });
 
 // Route to handle form submission
-app.post('/submit', (req, res) => {
+app.post("/submit", (req, res) => {
   const name = req.body.name;
-  res.render('index', { name: name });
+  res.render("index", { name: name });
 });
 
 app.listen(port, () => {
